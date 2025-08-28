@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqvoaokgjwky1"]
+
+[ext_resource type="Script" uid="uid://c8uwpqowoa304" path="res://Scripts/DraggableRect.cs" id="1_7r511"]
+
+[node name="DraggableRect" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7r511")
