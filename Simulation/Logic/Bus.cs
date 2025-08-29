@@ -10,7 +10,7 @@ public class Bus
     public readonly List<Port> sourcePorts;
     public readonly List<Port> destPorts;
 
-    public State[] data; 
+    public State[] data { get; private set; } 
 
     public void AddSourcePort(Port port)
     {

@@ -4,8 +4,8 @@ namespace Simulation.Gates;
 
 public class XorGate : Gate
 {
-    private static string gateName = "XOR";
-    private static string gateDesc = "Outputs [HIGH] if inputs are different, otherwise outputs [LOW]";
+    public static readonly string gateName = "XOR";
+    public static readonly string gateDesc = "Outputs [HIGH] if inputs are different, otherwise outputs [LOW]";
 
     private static Pin[] inputs = 
     {
@@ -14,9 +14,7 @@ public class XorGate : Gate
     };
     
 
-    public XorGate() :base(gateName, gateDesc, 0, inputs)
-    {
-    }
+    public XorGate() :base(gateName, gateDesc, 0, inputs) { }
 
     public override State Evaluate()
     {

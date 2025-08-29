@@ -10,7 +10,7 @@ public class Pin
 
     public readonly bool isOutput;
 
-    public State state = State.off;
+    public State state { get; private set; } = State.off;
 
     public Pin(int id, bool isOutput, Chip parentChip)
     {

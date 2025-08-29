@@ -9,7 +9,7 @@ public class Wire
     public readonly List<Pin> sourcePins;
     public readonly List<Pin> destPins;
 
-    public State state = State.off;
+    public State state  { get; private set; } = State.off;
 
     public void AddSourcePin(Pin pin)
     {

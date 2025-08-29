@@ -11,7 +11,7 @@ public class Port
 
     public readonly bool isOutput;
 
-    public State[] data;
+    public State[] data { get; private set; }
 
     public Port(int id, int size, bool isOutput, Chip parentChip)
     {
@@ -35,7 +35,6 @@ public class Port
                     bus.SetDataIndex(state, index);
         }
     }
-
 
     public void ConnectBus(Bus bus) => this.connectedBuses.Add(bus);
     public void DisconnectBus(Bus bus) => this.connectedBuses.Remove(bus);

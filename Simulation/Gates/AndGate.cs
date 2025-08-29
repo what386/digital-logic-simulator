@@ -4,8 +4,8 @@ namespace Simulation.Gates;
 
 public class AndGate : Gate
 {
-    private static string gateName = "AND";
-    private static string gateDesc = "Outputs [HIGH] if both inputPins are [HIGH], otherwise outputs [LOW]";
+    private static readonly string gateName = "AND";
+    private static readonly string gateDesc = "Outputs [HIGH] if both inputPins are [HIGH], otherwise outputs [LOW]";
 
     private static Pin[] inputs = 
     {
@@ -14,9 +14,7 @@ public class AndGate : Gate
     };
     
 
-    public AndGate() :base(gateName, gateDesc, 0, inputs)
-    {
-    }
+    public AndGate() :base(gateName, gateDesc, 0, inputs) { }
 
     public override State Evaluate()
     {

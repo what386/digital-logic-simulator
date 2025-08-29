@@ -4,19 +4,17 @@ namespace Simulation.Gates;
 
 public class OrGate : Gate
 {
-    private static string gateName = "OR";
-    private static string gateDesc = "Outputs [HIGH] if either inputs are [HIGH], otherwise outputs [LOW]";
+    public static readonly string gateName = "OR";
+    public static readonly string gateDesc = "Outputs [HIGH] if either inputs are [HIGH], otherwise outputs [LOW]";
 
-    private static Pin[] inputs = 
+    public static Pin[] inputs = 
     {
         new Pin(0,false,null),
         new Pin(1,false,null)
     };
     
 
-    public OrGate() :base(gateName, gateDesc, 0, inputs)
-    {
-    }
+    public OrGate() :base(gateName, gateDesc, 0, inputs) { }
 
     public override State Evaluate()
     {

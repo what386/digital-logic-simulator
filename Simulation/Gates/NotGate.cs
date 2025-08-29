@@ -4,18 +4,16 @@ namespace Simulation.Gates;
 
 public class NotGate : Gate
 {
-    private static string gateName = "NOT";
-    private static string gateDesc = "Outputs [HIGH] if the input is [LOW]";
+    public static readonly string gateName = "NOT";
+    public static readonly string gateDesc = "Outputs [HIGH] if the input is [LOW]";
 
-    private static Pin[] inputs = 
+    public static Pin[] inputs = 
     {
         new Pin(0,false,null),
     };
     
 
-    public NotGate() :base(gateName, gateDesc, 0, inputs)
-    {
-    }
+    public NotGate() :base(gateName, gateDesc, 0, inputs) { }
 
     public override State Evaluate()
     {

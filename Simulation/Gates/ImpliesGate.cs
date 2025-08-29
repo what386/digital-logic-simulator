@@ -14,9 +14,7 @@ public class ImpliesGate : Gate
     };
     
 
-    public ImpliesGate() :base(gateName, gateDesc, 0, inputs)
-    {
-    }
+    public ImpliesGate() :base(gateName, gateDesc, 0, inputs) { }
 
     public override State Evaluate()
     {
