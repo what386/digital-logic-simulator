@@ -1,6 +1,6 @@
 using Simulation.Logic;
 
-namespace Simulation.Components.Gates;
+namespace Simulation.Gates;
 
 public class NotGate : Gate
 {
@@ -13,9 +13,8 @@ public class NotGate : Gate
     };
     
 
-    public NotGate() :base(gateName, gateDesc, 0)
+    public NotGate() :base(gateName, gateDesc, 0, inputs)
     {
-        base.inputPins = inputs; 
     }
 
     public override State Evaluate()

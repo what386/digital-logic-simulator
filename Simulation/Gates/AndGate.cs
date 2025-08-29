@@ -1,11 +1,11 @@
 using Simulation.Logic;
 
-namespace Simulation.Components.Gates;
+namespace Simulation.Gates;
 
-public class OrGate : Gate
+public class AndGate : Gate
 {
-    private static string gateName = "OR";
-    private static string gateDesc = "Outputs [HIGH] if either inputs are [HIGH], otherwise outputs [LOW]";
+    private static string gateName = "AND";
+    private static string gateDesc = "Outputs [HIGH] if both inputPins are [HIGH], otherwise outputs [LOW]";
 
     private static Pin[] inputs = 
     {
@@ -14,7 +14,7 @@ public class OrGate : Gate
     };
     
 
-    public OrGate() :base(gateName, gateDesc, 0, inputs)
+    public AndGate() :base(gateName, gateDesc, 0, inputs)
     {
     }
 
@@ -23,7 +23,7 @@ public class OrGate : Gate
         if(inputPins[0].state == State.off || inputPins[1].state == State.off)
             return State.off;
 
-        if(inputPins[0].state == State.high || inputPins[1].state == State.high)
+        if(inputPins[0].state == State.high && inputPins[1].state == State.high)
             return State.high;
 
         return State.low;

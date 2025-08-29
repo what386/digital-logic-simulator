@@ -21,11 +21,12 @@ public class Pin
 
     public void SetState(State state) => this.state = state;
 
-    public void UpdateWires()
+    public void UpdateConnectedWires()
     {
-        if(isOutput && this.state != State.off)
-            foreach(Wire wire in connectedWires)
-                    wire.PropagateSignal(this.state);
+        if(!isOutput || this.state == State.off) return;
+
+        foreach(Wire wire in connectedWires)
+                wire.UpdateState(this.state);
     }
 
     public void ConnectWire(Wire wire) => this.connectedWires.Add(wire);

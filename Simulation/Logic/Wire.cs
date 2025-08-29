@@ -9,16 +9,34 @@ public class Wire
     public readonly List<Pin> sourcePins;
     public readonly List<Pin> destPins;
 
-    public readonly State wireState = State.off;
+    public State state = State.off;
 
-    public void AddSourcePin(Pin pin) => sourcePins.Add(pin);
-    public void AddDestPin(Pin pin) => sourcePins.Add(pin);
+    public void AddSourcePin(Pin pin)
+    {
+        sourcePins.Add(pin);
+        pin.ConnectWire(this);
+    }
 
-    public Wire(int id, List<Pin> sourcePins, List<Pin> destPins)
+    public void AddDestPin(Pin pin)
+    {
+        destPins.Add(pin);
+        pin.ConnectWire(this);
+    }
+
+    public Wire(int id, Pin source, Pin dest)
     {
         this.id = id;
-        this.sourcePins = sourcePins;
-        this.destPins = destPins;
+        this.sourcePins.Add(source);
+        this.destPins.Add(dest);
+
+        ConnectToPins();
+    }
+
+    public Wire(int id, Pin[] sourcePins, Pin[] destPins)
+    {
+        this.id = id;
+        this.sourcePins = new List<Pin>(sourcePins);
+        this.destPins = new List<Pin>(destPins);
 
         ConnectToPins();
     }
@@ -32,9 +50,11 @@ public class Wire
             pin.ConnectWire(this);
     }
 
-    public void PropagateSignal(State state)
+    public void UpdateState(State state) => this.state = state;
+
+    public void PropagateSignal()
     {
         foreach (Pin pin in destPins)
-            pin.SetState(state);
+            pin.SetState(this.state);
     } 
 }

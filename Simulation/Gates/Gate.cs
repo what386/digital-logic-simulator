@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+using Simulation.Logic;
 
-namespace Simulation.Components.Gates;
+namespace Simulation.Gates;
 
 public abstract class Gate : Chip
 {
     public Gate(string name, string description, int id, Pin[] inputs) :base(name,description,id,null,null)
     {
-        base.inputPins = new List<Pin>(inputs);
+        base.inputPins = inputs;
         base.outputPins = [ new Pin(0,true,this) ];
     }
 

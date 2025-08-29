@@ -1,6 +1,6 @@
 using Simulation.Logic;
 
-namespace Simulation.Components.Gates;
+namespace Simulation.Gates;
 
 public class ImpliesGate : Gate
 {
